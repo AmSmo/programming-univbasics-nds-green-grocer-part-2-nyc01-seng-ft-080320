@@ -55,7 +55,7 @@ def checkout(cart, coupons)
   #
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
-  
+  binding.pry
   cart = consolidate_cart(cart)
   if coupons
     cart = apply_coupons(cart,coupons)
