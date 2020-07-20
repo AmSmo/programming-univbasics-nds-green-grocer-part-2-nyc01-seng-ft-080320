@@ -7,7 +7,7 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     redeem = find_item_by_name_in_collection(coupon[:item], cart)
     if redeem
-      binding.pry
+      
       if redeem[:count] == coupon[:num]
         
         cart.delete(redeem)
