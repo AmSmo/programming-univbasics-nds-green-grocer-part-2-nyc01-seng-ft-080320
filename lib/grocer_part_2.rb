@@ -14,13 +14,13 @@ def apply_coupons(cart, coupons)
         redeem[:count] = coupon[:num]
         cart.delete(original)
         cart << redeem
-      # elsif redeem[:count] > coupon[:num]
-      #   discounted = redeem
-      #   discounted[:count] = coupon[:num]
-      #   redeem[:count] -= coupon[:num]
-      #   discounted[:item] = "#{discounted[:item]} W/COUPON"
-      #   discounted[:price] = coupon[:cost]/coupon[:num]
-      #   cart << discounted
+      elsif redeem[:count] > coupon[:num]
+        discounted = redeem
+        discounted[:count] = coupon[:num]
+        redeem[:count] -= coupon[:num]
+        discounted[:item] = "#{discounted[:item]} W/COUPON"
+        discounted[:price] = coupon[:cost]/coupon[:num]
+        cart << discounted
        end
     end
   end
