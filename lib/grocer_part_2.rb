@@ -5,7 +5,14 @@ def apply_coupons(cart, coupons)
   #
   # REMEMBER: This method **should** update cart
   coupons.each do |coupon|
-    redeem = find_current_item
+    redeem = find_item_by_name_in_collection(coupon[:item], cart)
+    if redeem
+      if redeem[:count] == coupon[:count]
+        cart.delete(redeem)
+        cart << coupon
+      end
+    end
+    cart
   end
   
 end
