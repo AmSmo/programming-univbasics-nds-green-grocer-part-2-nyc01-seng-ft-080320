@@ -35,14 +35,12 @@ def apply_clearance(cart)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
-  new_cart
+  new_cart = []
   cart.each do |item|
     if item[:clearance]
       item[:price] *= (0.8)
-      new_cart << item
-    else
-      new_cart << item
     end
+    new_cart << item
   end
   new_cart
 end
