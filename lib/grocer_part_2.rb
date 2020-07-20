@@ -10,7 +10,7 @@ def apply_coupons(cart, coupons)
       if redeem[:count] == coupon[:num]
         redeem[:item] = "#{redeem[:item]} W/COUPON"
         redeem[:price] = coupon[:cost]/coupon[:num]
-        
+        redeem[:count] = 1
       # elsif redeem[:count] > coupon[:num]
       #   discounted = redeem
       #   discounted[:count] = coupon[:num]
