@@ -65,7 +65,7 @@ def add_up(cart)
   sum = 0
   cart.each do |item|
     sum+= (item[:price] * item[:count])
-    binding.pry
+    # binding.pry
   end
   sum
 end
