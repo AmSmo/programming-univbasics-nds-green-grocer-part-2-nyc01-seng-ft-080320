@@ -8,12 +8,13 @@ def apply_coupons(cart, coupons)
     redeem = find_item_by_name_in_collection(coupon[:item], cart)
     if redeem
       if redeem[:count] == coupon[:count]
+        binding.pry
         cart.delete(redeem)
         coupon[:item] == "#{coupon[:item]} W/COUPON"
         cart << coupon
       end
     end
-    binding.pry
+    
     cart
   end
   
