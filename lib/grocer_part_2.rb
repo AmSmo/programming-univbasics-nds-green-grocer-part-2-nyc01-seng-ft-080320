@@ -12,10 +12,10 @@ def apply_coupons(cart, coupons)
         redeem[:price] = coupon[:cost]/coupon[:num]
       end
     end
-    binding.pry
-    cart
+    
+    
   end
-  
+  cart
 end
 
 def apply_clearance(cart)
