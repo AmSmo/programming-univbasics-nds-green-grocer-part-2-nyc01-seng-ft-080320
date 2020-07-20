@@ -5,8 +5,8 @@ def apply_coupons(cart, coupons)
   #
   # REMEMBER: This method **should** update cart
   coupons.each do |coupon|
-    if find
-  binding.pry
+    redeem = find_current_item
+  end
   
 end
 
