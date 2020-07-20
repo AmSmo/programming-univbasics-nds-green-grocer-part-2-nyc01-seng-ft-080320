@@ -19,7 +19,11 @@ def apply_coupons(cart, coupons)
        end
     end
   end
-  
+  cart.each do |item|
+    if !find_item_by_name_in_collection(item[:item], new_cart)
+      new_cart << item
+    end
+  end
   new_cart
 end
 
