@@ -60,7 +60,7 @@ def checkout(cart, coupons)
   if coupons
     cart = apply_coupons(cart,coupons)
   end
-  apply_clearance(cart)
+  cart = apply_clearance(cart)
   sum = add_up(cart)
   return sum 
 end
