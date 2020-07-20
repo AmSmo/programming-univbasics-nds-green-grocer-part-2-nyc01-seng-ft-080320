@@ -8,7 +8,7 @@ def apply_coupons(cart, coupons)
     redeem = find_item_by_name_in_collection(coupon[:item], cart)
     original = redeem.clone
     if redeem
-      if redeem[:count] == coupon[:num]
+      if redeem[:count] >= coupon[:num]
         redeem[:item] = "#{redeem[:item]} W/COUPON"
         redeem[:price] = coupon[:cost]/coupon[:num]
         redeem[:count] = coupon[:num]
@@ -16,14 +16,14 @@ def apply_coupons(cart, coupons)
         cart << redeem
         original[:count] = 0
         cart << original
-      elsif redeem[:count] > coupon[:num]
-        original[:count] = redeem[:count] - coupon[:num]
-        redeem[:item] = "#{redeem[:item]} W/COUPON"
-        redeem[:price] = coupon[:cost]/coupon[:num]
-        redeem[:count] = coupon[:num]
-        # cart.delete(original)
-        cart << original
-        cart << redeem
+      # elsif redeem[:count] > coupon[:num]
+      #   original[:count] = redeem[:count] - coupon[:num]
+      #   redeem[:item] = "#{redeem[:item]} W/COUPON"
+      #   redeem[:price] = coupon[:cost]/coupon[:num]
+      #   redeem[:count] = coupon[:num]
+      #   # cart.delete(original)
+      #   cart << original
+      #   cart << redeem
        end
     end
   end
