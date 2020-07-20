@@ -12,8 +12,7 @@ def apply_coupons(cart, coupons)
         redeem[:item] = "#{redeem[:item]} W/COUPON"
         redeem[:price] = coupon[:cost]/coupon[:num]
         redeem[:count] = coupon[:num]
-        original[:count]-= coupon[:num]
-        cart.push(original, redeem)
+        cart << redeem
       # elsif redeem[:count] > coupon[:num]
       #   discounted = redeem
       #   discounted[:count] = coupon[:num]
@@ -24,6 +23,7 @@ def apply_coupons(cart, coupons)
        end
     end
   end
+  binding.pry
   cart
 end
 
