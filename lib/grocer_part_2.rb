@@ -22,7 +22,7 @@ def apply_coupons(cart, coupons)
         redeem[:price] = coupon[:cost]/coupon[:num]
         redeem[:count] = coupon[:num]
         # cart.delete(original)
-        cart << original
+       
         cart << redeem
        end
     end
