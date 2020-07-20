@@ -7,11 +7,13 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     redeem = find_item_by_name_in_collection(coupon[:item], cart)
     if redeem
+      original = redeem
       if redeem[:count] == coupon[:num]
         redeem[:item] = "#{redeem[:item]} W/COUPON"
         redeem[:price] = coupon[:cost]/coupon[:num]
         redeem[:count] = coupon[:num]
-        cart << redeem
+        original[:count]-= coupon[:num]
+        cart.push(original, redeem)
       # elsif redeem[:count] > coupon[:num]
       #   discounted = redeem
       #   discounted[:count] = coupon[:num]
