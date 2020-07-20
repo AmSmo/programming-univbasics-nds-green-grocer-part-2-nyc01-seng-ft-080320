@@ -10,6 +10,9 @@ def apply_coupons(cart, coupons)
       if redeem[:count] >= coupon[:num]
         discount = redeem
         redeem[:count] -= coupon[:num]
+        if redeem[:count] == 0
+          cart.delete(redeem)
+        end
         discount[:count] = coupon[:num]
         discount[:item] = "#{coupon[:item]} W/COUPON"
         cart << discount
