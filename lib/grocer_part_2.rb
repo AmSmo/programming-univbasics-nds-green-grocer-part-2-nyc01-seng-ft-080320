@@ -9,7 +9,7 @@ def apply_coupons(cart, coupons)
     if redeem
       binding.pry
       if redeem[:count] == coupon[:num]
-        binding.pry
+        
         cart.delete(redeem)
         coupon[:item] == "#{coupon[:item]} W/COUPON"
         cart << coupon
