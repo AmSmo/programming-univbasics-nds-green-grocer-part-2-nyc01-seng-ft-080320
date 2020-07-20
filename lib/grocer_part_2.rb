@@ -37,7 +37,7 @@ def apply_clearance(cart)
   # REMEMBER: This method **should** update cart
   cart.each do |item|
     if item[:ckearance]
-      item[:price]*= .8
+      item[:price] *= (0.8)
     end
   end
   cart
