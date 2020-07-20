@@ -4,6 +4,7 @@ def apply_coupons(cart, coupons)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
+  new_cart = []
   coupons.each do |coupon|
     redeem = find_item_by_name_in_collection(coupon[:item], cart)
     original = redeem.clone
@@ -12,8 +13,9 @@ def apply_coupons(cart, coupons)
         redeem[:item] = "#{redeem[:item]} W/COUPON"
         redeem[:price] = coupon[:cost]/coupon[:num]
         redeem[:count] = coupon[:num]
-        # cart << redeem
         original[:count] -= coupon[:num]
+        new_cart << original
+        new_cart << redeem
        end
     end
   end
