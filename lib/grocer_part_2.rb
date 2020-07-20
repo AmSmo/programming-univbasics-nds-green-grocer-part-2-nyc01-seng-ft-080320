@@ -13,6 +13,7 @@ def apply_coupons(cart, coupons)
         cart << coupon
       end
     end
+    binding.pry
     cart
   end
   
