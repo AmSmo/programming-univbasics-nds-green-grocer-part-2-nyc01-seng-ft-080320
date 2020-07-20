@@ -56,12 +56,12 @@ def checkout(cart, coupons)
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
   
-  consolidated = consolidate_cart(cart)
+  consolidate_cart(cart)
   if coupons
-    apply_coupons(consolidated,coupons)
+    apply_coupons(cart,coupons)
   end
-  cleared = apply_clearance(consolidated)
-  sum = add_up(cleared)
+  apply_clearance(cart)
+  sum = add_up(cart)
   return sum 
 end
 
