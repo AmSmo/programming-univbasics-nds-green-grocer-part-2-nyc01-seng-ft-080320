@@ -69,5 +69,9 @@ def add_up(cart)
     sum+= (item[:price] * item[:count])
     # binding.pry
   end
-  sum
+  if sum > 100
+    return sum * 0.9
+  else
+    return sum
+  end
 end
