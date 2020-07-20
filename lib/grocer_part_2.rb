@@ -15,6 +15,7 @@ def apply_coupons(cart, coupons)
         end
         discount[:count] = coupon[:num]
         discount[:item] = "#{coupon[:item]} W/COUPON"
+        discount[:price] = 
         cart << discount
       end
     end
