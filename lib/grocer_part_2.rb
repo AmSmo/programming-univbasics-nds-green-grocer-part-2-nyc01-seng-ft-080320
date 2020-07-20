@@ -14,6 +14,8 @@ def apply_coupons(cart, coupons)
         redeem[:count] = coupon[:num]
         cart.delete(original)
         cart << redeem
+        original[:count] = 0
+        cart << original
       elsif redeem[:count] > coupon[:num]
         original[:count] -= coupon[:num]
         redeem[:item] = "#{redeem[:item]} W/COUPON"
@@ -26,7 +28,7 @@ def apply_coupons(cart, coupons)
     end
   end
   
-  consolidate_cart(cart)
+  cart
 end
 
 def apply_clearance(cart)
