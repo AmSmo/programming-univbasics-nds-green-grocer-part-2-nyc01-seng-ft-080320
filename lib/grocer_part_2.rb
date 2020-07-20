@@ -6,6 +6,7 @@ def apply_coupons(cart, coupons)
   # REMEMBER: This method **should** update cart
   coupons.each do |coupon|
     redeem = find_item_by_name_in_collection(coupon[:item], cart)
+    original = redeem.clone
     if redeem
       if redeem[:count] == coupon[:num]
         redeem[:item] = "#{redeem[:item]} W/COUPON"
@@ -13,7 +14,7 @@ def apply_coupons(cart, coupons)
         redeem[:count] = coupon[:num]
         cart.delete(original)
         cart << redeem
-        # original[:count] = 0
+        original[:count] = 0
         cart << original
       elsif redeem[:count] > coupon[:num]
         original[:count] -= coupon[:num]
