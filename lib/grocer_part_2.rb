@@ -11,7 +11,7 @@ def apply_coupons(cart, coupons)
       if redeem[:count] == coupon[:num]
         
         cart.delete(redeem)
-        coupon[:item] == "#{coupon[:item]} W/COUPON"
+        coupon[:item] = "#{coupon[:item]} W/COUPON"
         cart << coupon
       end
     end
